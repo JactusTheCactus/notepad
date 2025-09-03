@@ -2,12 +2,16 @@
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Notepad
 {
 	public partial class Form1 : Form
 	{
-		string rawText = "";
+		string rawText = @"
+	<m>  </m><i>Italic</i>
+	<m>+ </m><b>Bold</b>
+	<m>= </m><b,i>Italic</b,i>
+
+	<u>Underline</u>";
 		bool formatted = false;
 		public Form1()
 		{
@@ -23,16 +27,44 @@ namespace Notepad
 				rtbEditor.SelectedText = "";
 			}
 		}
-		private void SetStyle(String tag, FontStyle style)
+		private Font SetFont(
+			String family = "Arial",
+			Int32 size = 20,
+			String style = "Regular"
+			)
 		{
-			String pattern = $@"(?<=<{tag}>)(.*?)(?=</{tag}>)";
+			FontStyle fontStyle = (FontStyle)Enum.Parse(typeof(FontStyle), style.Replace(" ", ""), true);
+			return new Font(family, size, fontStyle);
+		}
+		private void SetStyle(Action<RichTextBox> formatter, String openTag, String closeTag)
+		{
+			openTag = Regex.Escape(openTag);
+			closeTag = Regex.Escape(closeTag);
+			String pattern = $@"(?<={openTag})(.*?)(?={closeTag})";
 			foreach (Match match in Regex.Matches(rtbEditor.Text, pattern))
 			{
 				rtbEditor.Select(match.Index, match.Length);
-				rtbEditor.SelectionFont = new Font("Segoe UI", 20, style);
+				formatter(rtbEditor);
 				rtbEditor.DeselectAll();
 			}
-			RemoveTags($@"</?{tag}>");
+			RemoveTags($@"{openTag}|{closeTag}");
+		}
+		private void StyleFormat(
+			(String open, String close) tags,
+			String family = "Arial",
+			Int32 size = 20,
+			String style = "Regular"
+			)
+		{
+			SetStyle(box => box.SelectionFont = SetFont(
+				family: family,
+				size: size,
+				style: style
+			), tags.open, tags.close);
+		}
+		private (String, String) HTML(String tag)
+		{
+			return ($"<{tag}>", $"</{tag}>");
 		}
 		private void format()
 		{
@@ -41,9 +73,16 @@ namespace Notepad
 				rtbEditor.Font = new Font("Arial", 20, FontStyle.Regular);
 				ViewMode.Text = "Formatting Mode";
 				rawText = rtbEditor.Text;
-				SetStyle("i", FontStyle.Italic);
-				SetStyle("b", FontStyle.Bold);
-				Console.WriteLine(rtbEditor.Text);
+				StyleFormat(HTML("i"),
+					style: "Italic");
+				StyleFormat(HTML("b"),
+					style: "Bold");
+				StyleFormat(HTML("b,i"),
+					style: "Bold, Italic");
+				StyleFormat(HTML("u"),
+					style: "Underline");
+				StyleFormat(HTML("m"),
+					family: "Consolas");
 				rtbEditor.ReadOnly = true;
 			}
 			else
