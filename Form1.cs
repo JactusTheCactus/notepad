@@ -8,7 +8,7 @@ namespace Notepad
 	public partial class Form1 : Form
 	{
 		string rawText = "";
-		bool formatted = false; // your toggle
+		bool formatted = false;
 		public Form1()
 		{
 			InitializeComponent();
