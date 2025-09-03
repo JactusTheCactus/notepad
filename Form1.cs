@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 namespace Notepad
 {
-	public partial class Form1 : Form
+	public partial class App : Form
 	{
 		string rawText = @"
-	<m>  </m><i>Italic</i>
-	<m>+ </m><b>Bold</b>
-	<m>= </m><b,i>Italic</b,i>
+	`  `<b>Bold</b>
+	`+ `<i>Italic</i>
+	`= `<b,i>Both</b,i>
 
-	<u>Underline</u>";
+	_Underline_";
 		bool formatted = false;
-		public Form1()
+		public App()
 		{
 			InitializeComponent();
 		}
@@ -50,7 +51,7 @@ namespace Notepad
 			RemoveTags($@"{openTag}|{closeTag}");
 		}
 		private void StyleFormat(
-			(String open, String close) tags,
+			String[] tags,
 			String family = "Arial",
 			Int32 size = 20,
 			String style = "Regular"
@@ -60,11 +61,15 @@ namespace Notepad
 				family: family,
 				size: size,
 				style: style
-			), tags.open, tags.close);
+			), tags[0], tags[1]);
 		}
-		private (String, String) HTML(String tag)
+		private String[] HTML(String tag)
 		{
-			return ($"<{tag}>", $"</{tag}>");
+			return new String[] { $"<{tag}>", $"</{tag}>" };
+		}
+		private T[] ListDuplicates<T>(T input, Int32 n)
+		{
+			return Enumerable.Repeat(input, n).ToArray();
 		}
 		private void format()
 		{
@@ -74,15 +79,20 @@ namespace Notepad
 				ViewMode.Text = "Formatting Mode";
 				rawText = rtbEditor.Text;
 				StyleFormat(HTML("i"),
-					style: "Italic");
+					style: "Italic"
+				);
 				StyleFormat(HTML("b"),
-					style: "Bold");
+					style: "Bold"
+				);
 				StyleFormat(HTML("b,i"),
-					style: "Bold, Italic");
-				StyleFormat(HTML("u"),
-					style: "Underline");
-				StyleFormat(HTML("m"),
-					family: "Consolas");
+					style: "Bold, Italic"
+				);
+				StyleFormat(ListDuplicates("_", 2),
+					style: "Underline"
+				);
+				StyleFormat(ListDuplicates("`", 2),
+					family: "Consolas"
+				);
 				rtbEditor.ReadOnly = true;
 			}
 			else

@@ -1,6 +1,6 @@
 ﻿namespace Notepad
 	{
-	partial class Form1
+	partial class App
 		{
 		/// <summary>
 		/// Required designer variable.
@@ -27,14 +27,14 @@
 		/// </summary>
 		private void InitializeComponent()
 			{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.rtbEditor = new System.Windows.Forms.RichTextBox();
             this.formattingButton = new System.Windows.Forms.Button();
             this.ViewMode = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.TopBar = new System.Windows.Forms.Panel();
+            this.Window = new System.Windows.Forms.Panel();
+            this.TopBar.SuspendLayout();
+            this.Window.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbEditor
@@ -56,31 +56,31 @@
             this.ViewMode.Name = "ViewMode";
             this.ViewMode.ReadOnly = true;
             // 
-            // panel1
+            // TopBar
             // 
-            this.panel1.Controls.Add(this.formattingButton);
-            this.panel1.Controls.Add(this.ViewMode);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
+            this.TopBar.Controls.Add(this.formattingButton);
+            this.TopBar.Controls.Add(this.ViewMode);
+            resources.ApplyResources(this.TopBar, "TopBar");
+            this.TopBar.Name = "TopBar";
             // 
-            // panel2
+            // Window
             // 
-            this.panel2.Controls.Add(this.rtbEditor);
-            this.panel2.Controls.Add(this.panel1);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
+            this.Window.Controls.Add(this.rtbEditor);
+            this.Window.Controls.Add(this.TopBar);
+            resources.ApplyResources(this.Window, "Window");
+            this.Window.Name = "Window";
             // 
-            // Form1
+            // App
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
-            this.Name = "Form1";
+            this.Controls.Add(this.Window);
+            this.Name = "App";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.TopBar.ResumeLayout(false);
+            this.TopBar.PerformLayout();
+            this.Window.ResumeLayout(false);
             this.ResumeLayout(false);
 
 			}
@@ -90,7 +90,7 @@
 		private System.Windows.Forms.RichTextBox rtbEditor;
 		private System.Windows.Forms.Button formattingButton;
 		private System.Windows.Forms.RichTextBox ViewMode;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Panel TopBar;
+		private System.Windows.Forms.Panel Window;
 	}
 	}
