@@ -57,10 +57,7 @@ namespace Notepad
 		private void formattingButton_Click(object sender, EventArgs e)
 		{
 			formatted = !formatted;
-
 			format();
-
-			// Keep caret at the end
 			rtbEditor.SelectionStart = rtbEditor.Text.Length;
 			rtbEditor.ScrollToCaret();
 		}
