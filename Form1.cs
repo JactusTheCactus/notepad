@@ -20,7 +20,7 @@ namespace Notepad
 			{
 				var match = matches[i];
 				rtbEditor.Select(match.Index, match.Length);
-				rtbEditor.SelectedText = ""; // safely remove tag
+				rtbEditor.SelectedText = "";
 			}
 		}
 		private void SetStyle(String tag, FontStyle style)
