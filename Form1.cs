@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Notepad
 {
@@ -36,10 +29,14 @@ namespace Notepad
 
 			if (formatted)
 			{
+				rtbEditor.Font = new Font("Arial", 20, FontStyle.Regular);
 				ViewMode.Text = formattingLabel;
 				// Copy current text to rawText and apply formatting
 				rawText = rtbEditor.Text;
-				rtbEditor.Text = ApplyFormatting(rawText);
+				SetStyle(@"(?<=<i>)(.*?)(?=</i>)", FontStyle.Italic);
+				//Regex.Replace(rtbEditor.Text, @"<(\w+)>(.*?)</\1>", @"$2");
+				rtbEditor.Text.Replace(@"</?\w+>", @"");
+				//rtbEditor.Text = ApplyFormatting(rawText);
 
 				// Prevent further input
 				rtbEditor.ReadOnly = true;
@@ -49,6 +46,7 @@ namespace Notepad
 				ViewMode.Text = editingLabel;
 				// Restore raw text for editing
 				rtbEditor.Text = rawText;
+				rtbEditor.Font = new Font("Consolas", 20, FontStyle.Regular);
 
 				// Allow typing again
 				rtbEditor.ReadOnly = false;
