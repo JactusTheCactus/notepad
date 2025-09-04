@@ -1,4 +1,4 @@
-`C#` Notepad
+﻿`C#` Notepad
 ============
 Features to add:
 ----------------
@@ -17,4 +17,4 @@ Syntax
 - `{=*|Bold+Italic|=*}` => ***Bold+Italic***
 - <code>{\`|Monospace|\`}</code> => `Monospace`
 - `{_|Underline|_}` => <ins>Underline</ins>
-- `{~|Strikethrough|~}` => ~Strikethrough~
+- `{~|Strikethrough|~}` => ~~Strikethrough~~
