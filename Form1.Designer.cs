@@ -28,8 +28,8 @@
 		private void InitializeComponent()
 			{
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
-            this.rtbEditor = new System.Windows.Forms.RichTextBox();
-            this.formattingButton = new System.Windows.Forms.Button();
+            this.RTBEditor = new System.Windows.Forms.RichTextBox();
+            this.FormattingButton = new System.Windows.Forms.Button();
             this.ViewMode = new System.Windows.Forms.RichTextBox();
             this.TopBar = new System.Windows.Forms.Panel();
             this.Window = new System.Windows.Forms.Panel();
@@ -37,18 +37,18 @@
             this.Window.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rtbEditor
+            // RTBEditor
             // 
-            this.rtbEditor.AcceptsTab = true;
-            resources.ApplyResources(this.rtbEditor, "rtbEditor");
-            this.rtbEditor.Name = "rtbEditor";
+            this.RTBEditor.AcceptsTab = true;
+            resources.ApplyResources(this.RTBEditor, "RTBEditor");
+            this.RTBEditor.Name = "RTBEditor";
             // 
-            // formattingButton
+            // FormattingButton
             // 
-            resources.ApplyResources(this.formattingButton, "formattingButton");
-            this.formattingButton.Name = "formattingButton";
-            this.formattingButton.UseVisualStyleBackColor = true;
-            this.formattingButton.Click += new System.EventHandler(this.formattingButton_Click);
+            resources.ApplyResources(this.FormattingButton, "FormattingButton");
+            this.FormattingButton.Name = "FormattingButton";
+            this.FormattingButton.UseVisualStyleBackColor = true;
+            this.FormattingButton.Click += new System.EventHandler(this.FormattingButton_Click);
             // 
             // ViewMode
             // 
@@ -58,14 +58,14 @@
             // 
             // TopBar
             // 
-            this.TopBar.Controls.Add(this.formattingButton);
+            this.TopBar.Controls.Add(this.FormattingButton);
             this.TopBar.Controls.Add(this.ViewMode);
             resources.ApplyResources(this.TopBar, "TopBar");
             this.TopBar.Name = "TopBar";
             // 
             // Window
             // 
-            this.Window.Controls.Add(this.rtbEditor);
+            this.Window.Controls.Add(this.RTBEditor);
             this.Window.Controls.Add(this.TopBar);
             resources.ApplyResources(this.Window, "Window");
             this.Window.Name = "Window";
@@ -87,8 +87,8 @@
 
 		#endregion
 
-		private System.Windows.Forms.RichTextBox rtbEditor;
-		private System.Windows.Forms.Button formattingButton;
+		private System.Windows.Forms.RichTextBox RTBEditor;
+		private System.Windows.Forms.Button FormattingButton;
 		private System.Windows.Forms.RichTextBox ViewMode;
 		private System.Windows.Forms.Panel TopBar;
 		private System.Windows.Forms.Panel Window;

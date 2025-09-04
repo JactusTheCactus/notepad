@@ -1,60 +1,79 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 namespace Notepad
 {
 	public partial class App : Form
 	{
-		string rawText = @"
-	`  `<b>Bold</b>
-	`+ `<i>Italic</i>
-	`= `<b,i>Both</b,i>
-
-	_Underline_";
+		Dictionary<string, string> formatDict = new Dictionary<string, string>
+		{
+			{ "bold", "b" },
+			{"italic","*" },
+			{"bold-italic","b*" },
+			{"mono","m" },
+			{"underline","_" },
+			{"strikethrough","~" }
+		};
+		string rawText;
+		private string[] SyntaxFormat(string input)
+		{
+			return new string[] { $@"{{{input}|", $@"|{input}}}" };
+		}
+		private string FmtString(string tag, string input)
+		{
+			return $"{SyntaxFormat(formatDict[tag])[0]}{input}{SyntaxFormat(formatDict[tag])[1]}";
+		}
 		bool formatted = false;
 		public App()
 		{
 			InitializeComponent();
+			rawText = $@"
+	{FmtString("mono", "  ")}{FmtString("bold", "Bold")}
+	{FmtString("mono", "+ ")}{FmtString("italic", "Italic")}
+	{FmtString("mono", "= ")}{FmtString("bold-italic", "Both")}
+
+	{FmtString("underline", "Underline")}
+	{FmtString("strikethrough", "Strikethrough")}";
 		}
 		private void RemoveTags(string pattern)
 		{
-			var matches = Regex.Matches(rtbEditor.Text, pattern);
+			var matches = Regex.Matches(RTBEditor.Text, pattern);
 			for (int i = matches.Count - 1; i >= 0; i--)
 			{
 				var match = matches[i];
-				rtbEditor.Select(match.Index, match.Length);
-				rtbEditor.SelectedText = "";
+				RTBEditor.Select(match.Index, match.Length);
+				RTBEditor.SelectedText = "";
 			}
 		}
 		private Font SetFont(
-			String family = "Arial",
-			Int32 size = 20,
-			String style = "Regular"
-			)
+			string family = "Arial",
+			int size = 20,
+			string style = "Regular"
+		)
 		{
 			FontStyle fontStyle = (FontStyle)Enum.Parse(typeof(FontStyle), style.Replace(" ", ""), true);
 			return new Font(family, size, fontStyle);
 		}
-		private void SetStyle(Action<RichTextBox> formatter, String openTag, String closeTag)
+		private void SetStyle(Action<RichTextBox> formatter, string openTag, string closeTag)
 		{
 			openTag = Regex.Escape(openTag);
 			closeTag = Regex.Escape(closeTag);
-			String pattern = $@"(?<={openTag})(.*?)(?={closeTag})";
-			foreach (Match match in Regex.Matches(rtbEditor.Text, pattern))
+			string pattern = $@"(?<={openTag})(.*?)(?={closeTag})";
+			foreach (Match match in Regex.Matches(RTBEditor.Text, pattern))
 			{
-				rtbEditor.Select(match.Index, match.Length);
-				formatter(rtbEditor);
-				rtbEditor.DeselectAll();
+				RTBEditor.Select(match.Index, match.Length);
+				formatter(RTBEditor);
+				RTBEditor.DeselectAll();
 			}
 			RemoveTags($@"{openTag}|{closeTag}");
 		}
 		private void StyleFormat(
-			String[] tags,
-			String family = "Arial",
-			Int32 size = 20,
-			String style = "Regular"
+			string[] tags,
+			string family = "Arial",
+			int size = 20,
+			string style = "Regular"
 			)
 		{
 			SetStyle(box => box.SelectionFont = SetFont(
@@ -63,56 +82,51 @@ namespace Notepad
 				style: style
 			), tags[0], tags[1]);
 		}
-		private String[] HTML(String tag)
-		{
-			return new String[] { $"<{tag}>", $"</{tag}>" };
-		}
-		private T[] ListDuplicates<T>(T input, Int32 n)
-		{
-			return Enumerable.Repeat(input, n).ToArray();
-		}
-		private void format()
+		private void Format()
 		{
 			if (formatted)
 			{
-				rtbEditor.Font = new Font("Arial", 20, FontStyle.Regular);
+				RTBEditor.Font = new Font("Arial", 20, FontStyle.Regular);
 				ViewMode.Text = "Formatting Mode";
-				rawText = rtbEditor.Text;
-				StyleFormat(HTML("i"),
+				rawText = RTBEditor.Text;
+				StyleFormat(SyntaxFormat("*"),
 					style: "Italic"
 				);
-				StyleFormat(HTML("b"),
+				StyleFormat(SyntaxFormat("b"),
 					style: "Bold"
 				);
-				StyleFormat(HTML("b,i"),
+				StyleFormat(SyntaxFormat("b*"),
 					style: "Bold, Italic"
 				);
-				StyleFormat(ListDuplicates("_", 2),
+				StyleFormat(SyntaxFormat("_"),
 					style: "Underline"
 				);
-				StyleFormat(ListDuplicates("`", 2),
+				StyleFormat(SyntaxFormat("~"),
+					style: "Strikeout"
+				);
+				StyleFormat(SyntaxFormat("m"),
 					family: "Consolas"
 				);
-				rtbEditor.ReadOnly = true;
+				RTBEditor.ReadOnly = true;
 			}
 			else
 			{
 				ViewMode.Text = "Editing Mode";
-				rtbEditor.Text = rawText;
-				rtbEditor.Font = new Font("Consolas", 20, FontStyle.Regular);
-				rtbEditor.ReadOnly = false;
+				RTBEditor.Text = rawText;
+				RTBEditor.Font = new Font("Consolas", 20, FontStyle.Regular);
+				RTBEditor.ReadOnly = false;
 			}
 		}
-		private void formattingButton_Click(object sender, EventArgs e)
+		private void FormattingButton_Click(object sender, EventArgs e)
 		{
 			formatted = !formatted;
-			format();
-			rtbEditor.SelectionStart = rtbEditor.Text.Length;
-			rtbEditor.ScrollToCaret();
+			Format();
+			RTBEditor.SelectionStart = RTBEditor.Text.Length;
+			RTBEditor.ScrollToCaret();
 		}
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			format();
+			Format();
 		}
 	}
 }
