@@ -17,7 +17,7 @@ Syntax
 |`{=\|Bold\|=}`|**Bold**|
 |`{*\|Italic\|*}`|*Italic*|
 |`{=*\|Bold+Italic\|=*}`|***Bold+Italic***|
-|<code>{\`\|Monospace\|\`}</code>|`Monospace`|
+|`{.\|Monospace\|.}`|`Monospace`|
 |`{_\|Underline\|_}`|<ins>Underline</ins>|
 |`{~\|Strikethrough\|~}`|~~Strikethrough~~|
 
