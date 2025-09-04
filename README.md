@@ -14,7 +14,7 @@ Syntax
 ------
 |Syntax|Formatted|
 |-:|:-|
-|`{=\|Bold\|=}`|**Bold**|
+|`{=|Bold|=}`|**Bold**|
 |`{*\|Italic\|*}`|*Italic*|
 |`{=*\|Bold+Italic\|=*}`|***Bold+Italic***|
 |`{.\|Monospace\|.}`|`Monospace`|
