@@ -29,8 +29,8 @@
             this.RTBEditor = new System.Windows.Forms.RichTextBox();
             this.FormattingButton = new System.Windows.Forms.Button();
             this.TopBar = new System.Windows.Forms.Panel();
-            this.Window = new System.Windows.Forms.Panel();
             this.ViewMode = new System.Windows.Forms.Label();
+            this.Window = new System.Windows.Forms.Panel();
             this.TopBar.SuspendLayout();
             this.Window.SuspendLayout();
             this.SuspendLayout();
@@ -55,17 +55,17 @@
             resources.ApplyResources(this.TopBar, "TopBar");
             this.TopBar.Name = "TopBar";
             // 
+            // ViewMode
+            // 
+            resources.ApplyResources(this.ViewMode, "ViewMode");
+            this.ViewMode.Name = "ViewMode";
+            // 
             // Window
             // 
             this.Window.Controls.Add(this.RTBEditor);
             this.Window.Controls.Add(this.TopBar);
             resources.ApplyResources(this.Window, "Window");
             this.Window.Name = "Window";
-            // 
-            // ViewMode
-            // 
-            resources.ApplyResources(this.ViewMode, "ViewMode");
-            this.ViewMode.Name = "ViewMode";
             // 
             // App
             // 
@@ -79,6 +79,7 @@
             this.TopBar.PerformLayout();
             this.Window.ResumeLayout(false);
             this.ResumeLayout(false);
+
 			}
 		#endregion
 		private System.Windows.Forms.RichTextBox RTBEditor;
