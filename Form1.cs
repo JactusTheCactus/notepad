@@ -16,7 +16,7 @@ namespace Notepad
 			formatDict.Add("bold", "=");
 			formatDict.Add("italic", "*");
 			formatDict.Add("bold-italic", $"{formatDict["bold"]}{formatDict["italic"]}");
-			formatDict.Add("mono", "`");
+			formatDict.Add("mono", ".");
 			formatDict.Add("underline", "_");
 			formatDict.Add("strikethrough", "~");
 			rawText = $@"{FmtString("bold", "Bold")}
