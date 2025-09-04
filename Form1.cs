@@ -7,35 +7,32 @@ namespace Notepad
 {
 	public partial class App : Form
 	{
-		Dictionary<string, string> formatDict = new Dictionary<string, string>
-		{
-			{ "bold", "b" },
-			{"italic","*" },
-			{"bold-italic","b*" },
-			{"mono","m" },
-			{"underline","_" },
-			{"strikethrough","~" }
-		};
+		Dictionary<string, string> formatDict = new Dictionary<string, string>();
 		string rawText;
-		private string[] SyntaxFormat(string input)
-		{
-			return new string[] { $@"{{{input}|", $@"|{input}}}" };
-		}
-		private string FmtString(string tag, string input)
-		{
-			return $"{SyntaxFormat(formatDict[tag])[0]}{input}{SyntaxFormat(formatDict[tag])[1]}";
-		}
 		bool formatted = false;
 		public App()
 		{
 			InitializeComponent();
-			rawText = $@"
-	{FmtString("mono", "  ")}{FmtString("bold", "Bold")}
-	{FmtString("mono", "+ ")}{FmtString("italic", "Italic")}
-	{FmtString("mono", "= ")}{FmtString("bold-italic", "Both")}
-
-	{FmtString("underline", "Underline")}
-	{FmtString("strikethrough", "Strikethrough")}";
+			formatDict.Add("bold", "=");
+			formatDict.Add("italic", "*");
+			formatDict.Add("bold-italic", $"{formatDict["bold"]}{formatDict["italic"]}");
+			formatDict.Add("mono", "`");
+			formatDict.Add("underline", "_");
+			formatDict.Add("strikethrough", "~");
+			rawText = $@"{FmtString("bold", "Bold")}
+{FmtString("italic", "Italic")}
+{FmtString("bold-italic", "Bold+Italic")}
+{FmtString("mono", "Monospace")}
+{FmtString("underline", "Underline")}
+{FmtString("strikethrough", "Strikethrough")}";
+		}
+		private string[] SyntaxFormat(string input)
+		{
+			return new string[] { $@"{{{formatDict[input]}|", $@"|{formatDict[input]}}}" };
+		}
+		private string FmtString(string tag, string input)
+		{
+			return $"{SyntaxFormat(tag)[0]}{input}{SyntaxFormat(tag)[1]}";
 		}
 		private void RemoveTags(string pattern)
 		{
@@ -89,22 +86,22 @@ namespace Notepad
 				RTBEditor.Font = new Font("Arial", 20, FontStyle.Regular);
 				ViewMode.Text = "Formatting Mode";
 				rawText = RTBEditor.Text;
-				StyleFormat(SyntaxFormat("*"),
+				StyleFormat(SyntaxFormat("italic"),
 					style: "Italic"
 				);
-				StyleFormat(SyntaxFormat("b"),
+				StyleFormat(SyntaxFormat("bold"),
 					style: "Bold"
 				);
-				StyleFormat(SyntaxFormat("b*"),
+				StyleFormat(SyntaxFormat("bold-italic"),
 					style: "Bold, Italic"
 				);
-				StyleFormat(SyntaxFormat("_"),
+				StyleFormat(SyntaxFormat("underline"),
 					style: "Underline"
 				);
-				StyleFormat(SyntaxFormat("~"),
+				StyleFormat(SyntaxFormat("strikethrough"),
 					style: "Strikeout"
 				);
-				StyleFormat(SyntaxFormat("m"),
+				StyleFormat(SyntaxFormat("mono"),
 					family: "Consolas"
 				);
 				RTBEditor.ReadOnly = true;

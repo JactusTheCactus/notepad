@@ -6,7 +6,6 @@
 		/// Required designer variable.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
@@ -20,7 +19,6 @@
 			base.Dispose(disposing);
 			}
 		#region Windows Form Designer generated code
-
 		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
@@ -30,9 +28,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.RTBEditor = new System.Windows.Forms.RichTextBox();
             this.FormattingButton = new System.Windows.Forms.Button();
-            this.ViewMode = new System.Windows.Forms.RichTextBox();
             this.TopBar = new System.Windows.Forms.Panel();
             this.Window = new System.Windows.Forms.Panel();
+            this.ViewMode = new System.Windows.Forms.Label();
             this.TopBar.SuspendLayout();
             this.Window.SuspendLayout();
             this.SuspendLayout();
@@ -50,16 +48,10 @@
             this.FormattingButton.UseVisualStyleBackColor = true;
             this.FormattingButton.Click += new System.EventHandler(this.FormattingButton_Click);
             // 
-            // ViewMode
-            // 
-            resources.ApplyResources(this.ViewMode, "ViewMode");
-            this.ViewMode.Name = "ViewMode";
-            this.ViewMode.ReadOnly = true;
-            // 
             // TopBar
             // 
-            this.TopBar.Controls.Add(this.FormattingButton);
             this.TopBar.Controls.Add(this.ViewMode);
+            this.TopBar.Controls.Add(this.FormattingButton);
             resources.ApplyResources(this.TopBar, "TopBar");
             this.TopBar.Name = "TopBar";
             // 
@@ -69,6 +61,11 @@
             this.Window.Controls.Add(this.TopBar);
             resources.ApplyResources(this.Window, "Window");
             this.Window.Name = "Window";
+            // 
+            // ViewMode
+            // 
+            resources.ApplyResources(this.ViewMode, "ViewMode");
+            this.ViewMode.Name = "ViewMode";
             // 
             // App
             // 
@@ -82,15 +79,12 @@
             this.TopBar.PerformLayout();
             this.Window.ResumeLayout(false);
             this.ResumeLayout(false);
-
 			}
-
 		#endregion
-
 		private System.Windows.Forms.RichTextBox RTBEditor;
 		private System.Windows.Forms.Button FormattingButton;
-		private System.Windows.Forms.RichTextBox ViewMode;
 		private System.Windows.Forms.Panel TopBar;
 		private System.Windows.Forms.Panel Window;
+		private System.Windows.Forms.Label ViewMode;
 	}
 	}
