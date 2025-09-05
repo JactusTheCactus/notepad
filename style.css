@@ -1,0 +1,34 @@
+body {
+  font-size: 20pt;
+  font-family: Verdana;
+}
+body td:nth-child(odd) {
+  font-family: monospace;
+}
+
+tr:nth-child(2) > td:nth-child(2) {
+  font-weight: bold;
+}
+
+tr:nth-child(3) > td:nth-child(2) {
+  font-style: italic;
+}
+
+tr:nth-child(4) > td:nth-child(2) {
+  font-weight: bold;
+  font-style: italic;
+}
+
+tr:nth-child(5) > td:nth-child(2) {
+  font-family: monospace;
+}
+
+tr:nth-child(6) > td:nth-child(2) {
+  text-decoration: underline;
+}
+
+tr:nth-child(7) > td:nth-child(2) {
+  text-decoration: line-through;
+}
+
+/*# sourceMappingURL=style.css.map */
