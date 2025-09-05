@@ -6,9 +6,11 @@
 - [ ] Tag escaping
 - [ ] Buttons to insert tags
 - [ ] File Saving/Loading
-- [ ] Support for my custom Neographies - AbugidaR[^AbR] - AlphabetD[^AlD]
-      Syntax
+- [ ] Support for my custom Neographies
+	- AbugidaR[^AbR]
+	- AlphabetD[^AlD]
 
+Syntax
 ---
 
 <table>
