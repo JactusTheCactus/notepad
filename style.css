@@ -1,28 +1,29 @@
 body {
-  font-size: 20pt;
-  font-family: Verdana;
+	font: 20pt Verdana;
 }
-body td:nth-child(odd) {
-  font-family: monospace;
+
+td:nth-child(odd) {
+	font-family: monospace;
 }
-body tr:nth-child(2) > td:nth-child(2) {
-  font-weight: bold;
+
+tr:nth-child(2) > td:nth-child(2) {
+	font-weight: bold;
 }
-body tr:nth-child(3) > td:nth-child(2) {
-  font-style: italic;
+tr:nth-child(3) > td:nth-child(2) {
+	font-style: italic;
 }
-body tr:nth-child(4) > td:nth-child(2) {
-  font-weight: bold;
-  font-style: italic;
+tr:nth-child(4) > td:nth-child(2) {
+	font-weight: bold;
+	font-style: italic;
 }
-body tr:nth-child(5) > td:nth-child(2) {
-  font-family: monospace;
+tr:nth-child(5) > td:nth-child(2) {
+	font-family: monospace;
 }
-body tr:nth-child(6) > td:nth-child(2) {
-  text-decoration: underline;
+tr:nth-child(6) > td:nth-child(2) {
+	text-decoration: underline;
 }
-body tr:nth-child(7) > td:nth-child(2) {
-  text-decoration: line-through;
+tr:nth-child(7) > td:nth-child(2) {
+	text-decoration: line-through;
 }
 
 /*# sourceMappingURL=style.css.map */

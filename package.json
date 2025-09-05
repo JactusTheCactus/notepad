@@ -1,0 +1,31 @@
+{
+	"name": "notepad",
+	"version": "1.0.0",
+	"description": "- [ ] Automatically generated complex formatting tags - [ ] Tag escaping - [ ] Buttons to insert tags - [ ] File Saving/Loading - [ ] Support for my custom Neographies - AbugidaR[^AbR] - AlphabetD[^AlD]       Syntax",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JactusTheCactus/notepad.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/JactusTheCactus/notepad/issues"
+	},
+	"homepage": "https://github.com/JactusTheCactus/notepad#readme",
+	"prettier": {
+		"overrides": [
+			{
+				"files": "*.map",
+				"options": {
+					"parser": "json"
+				}
+			}
+		]
+	}
+}

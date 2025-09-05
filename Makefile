@@ -1,6 +1,16 @@
-.PHONY: all scss
+.PHONY: all build format
 
-all : scss
+all : build format
 
-scss : style.scss
+build : style.scss
 	sass style.scss style.css
+
+format : $(wildcard \
+	*.css \
+	*.json \
+	*.map \
+	*.scss \
+	*.html \
+	*.md \
+)
+	$(foreach FILE,FILES,prettier --write $^)
