@@ -3,6 +3,6 @@
 	"sourceRoot": "",
 	"sources": ["style.scss"],
 	"names": [],
-	"mappings": "AAAA;EACC;;;AAGD;EACC;;;AAIA;EACC;;AAGD;EACC;;AAGD;EACC;EACA;;AAGD;EACC;;AAGD;EACC;;AAGD;EACC",
+	"mappings": "AAAA;EACC;;;AAGD;EACC;;;AAGD;EACC;;;AAGD;EACC;;;AAGD;EACC;EACA;;;AAGD;EACC;;;AAGD;EACC;;;AAGD;EACC;;;AAGD",
 	"file": "style.css"
 }

@@ -1,11 +1,6 @@
 .PHONY: all build format
 
-all : build format
-
-build : style.scss
-	sass style.scss style.css
-
-format : $(wildcard \
+FILES := $(wildcard \
 	*.css \
 	*.json \
 	*.map \
@@ -13,4 +8,16 @@ format : $(wildcard \
 	*.html \
 	*.md \
 )
+
+SCSS := $(wildcard \
+	*.scss \
+)
+CSS := $(patsubst %.scss,%.css,$(SCSS))
+
+all : build format
+
+build : $(SCSS)
+	$(foreach FILE,SCSS,sass $^ $(CSS))
+
+format : $(FILES)
 	$(foreach FILE,FILES,prettier --write $^)
