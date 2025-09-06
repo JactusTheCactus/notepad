@@ -5,8 +5,8 @@
 SHELL := /bin/bash
 VENV := vEnv/bin/
 pyinstaller := $(VENV)pyinstaller
-python := $(VENV)python3
-pip := $(VENV)pip3
+python := $(VENV)python3.12
+pip := $(VENV)pip3.12
 RM := rm -rf
 SCRIPT := script.py
 APP := Notepad
