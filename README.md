@@ -26,7 +26,7 @@
 |`{=\|Bold\|=}`|**Bold**|
 |`{*\|Italic\|*}`|*Italic*|
 |`{.\|Monospace\|.}`|`Monospace`|
-|`{_\|Underline\|_}`|<u>Underline</u>|
+|`{_\|Underline\|_}`|<ins>Underline</ins>|
 |`{\|\|}`||
 
 <table>
