@@ -5,12 +5,12 @@
 - [ ] Automatically generated complex formatting tags
 	- For now, nesting will be used
 		>> `{=|{*|Bold+italic|*}|=}`
-		>> (Nested Tags)
+		>> (Nested Tags [Current])
 		>
 		> instead of
 		>
 		>> `{=*|Bold+Italic|*=}`
-		>> (Complex Tags)
+		>> (Complex Tags [Planned])
 - [ ] Tag escaping
 - [ ] Buttons to insert tags
 - [ ] File Saving/Loading
