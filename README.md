@@ -25,9 +25,9 @@
 
 ## Tech Stack
 
-- ![Static Badge](https://img.shields.io/badge/Python-00f?style=for-the-badge&logo=Python)
-	- ![Static Badge](https://img.shields.io/badge/Qt-0f0?style=for-the-badge&logo=Qt)
-- Make
+- Python
+	- Qt
+- ![Static Badge](https://img.shields.io/badge/Make-6D00CC?style=for-the-badge&logo=Make)
 - CSS
 	- SCSS
 
