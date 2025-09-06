@@ -24,16 +24,12 @@
 |Syntax|Formatted|
 |-|-|
 |`{=\|Bold\|=}`|**Bold**|
-|||
-|||
-|||
-|||
+|`{\|\|}`||
+|`{\|\|}`||
+|`{\|\|}`||
+|`{\|\|}`||
 
 <table>
-	<tr>
-		<td><code>{=|Bold|=}</code></td>
-		<td><b>Bold</b></td>
-	</tr>
 	<tr>
 		<td><code>{*|Italic|*}</code></td>
 		<td><i>Italic</i></td>
