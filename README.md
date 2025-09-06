@@ -3,6 +3,14 @@
 ## Features to add:
 
 - [ ] Automatically generated complex formatting tags
+	- For now, nesting will be used
+		>> `{=|{*|Bold+italic|*}|=}`
+		>> (Nested Tags)
+		>
+		> instead of
+		>
+		>> `{=*|Bold+Italic|*=}`
+		>> (Complex Tags)
 - [ ] Tag escaping
 - [ ] Buttons to insert tags
 - [ ] File Saving/Loading
@@ -24,10 +32,6 @@
 	<tr>
 		<td><code>{*|Italic|*}</code></td>
 		<td><i>Italic</i></td>
-	</tr>
-	<tr>
-		<td><code>{=*|Bold+Italic|=*}</code></td>
-		<td><b><i>Bold+Italic</i></b></td>
 	</tr>
 	<tr>
 		<td><code>{.|Monospace|.}</code></td>

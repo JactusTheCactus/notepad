@@ -10,15 +10,16 @@ pip := $(VENV)pip3
 RM := rm -rf
 SCRIPT := script.py
 APP := Notepad
+TEMP := build $(APP).spec
 
 # Toggle Booleans
 RUN_PYTHON := false
-RUN_EXEC := false
+RUN_EXEC := true
 
 # Rules
 all : clear build clean test
-clear : clean
-	$(RM) dist
+clear :
+	@$(RM) $(TEMP) dist
 build : python package
 python : $(SCRIPT)
 ifeq ($(RUN_PYTHON),true)
@@ -32,7 +33,7 @@ package : $(SCRIPT)
 	--add-data "style.scss:." \
 	$(SCRIPT)
 clean :
-	$(RM) build $(APP).spec
+	@$(RM) $(TEMP)
 test :
 ifeq ($(RUN_EXEC),true)
 	@cd dist && ./$(APP)
