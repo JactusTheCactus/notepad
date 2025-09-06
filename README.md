@@ -25,7 +25,7 @@
 
 ## Tech Stack
 
-- Python
+- ![Static Badge](https://img.shields.io/badge/Python-00f?style=for-the-badge&logo=Python)
 	- PyQt
 - Make
 - CSS
