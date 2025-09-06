@@ -12,7 +12,10 @@ FILES := $(wildcard \
 SCSS := $(wildcard \
 	*.scss \
 )
+
 CSS := $(patsubst %.scss,%.css,$(SCSS))
+
+CSSMAP := $(patsubst %.scss,%.css.map,$(SCSS))
 
 PY := $(wildcard *.py)
 
@@ -20,6 +23,7 @@ all : build format python
 
 build : $(SCSS)
 	$(foreach FILE,SCSS,sass $^ $(CSS))
+	$(foreach FILE,CSSMAP,rm -rf $^ $(CSSMAP))
 
 format : $(FILES)
 	$(foreach FILE,FILES,prettier --write $^)
