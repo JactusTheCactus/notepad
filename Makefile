@@ -9,9 +9,7 @@ FILES := $(wildcard \
 	*.md \
 )
 
-SCSS := $(wildcard \
-	*.scss \
-)
+SCSS := $(wildcard *.scss)
 
 CSS := $(patsubst %.scss,%.css,$(SCSS))
 
