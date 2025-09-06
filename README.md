@@ -31,10 +31,6 @@
 
 <table>
 	<tr>
-		<td><code>{*|Italic|*}</code></td>
-		<td><i>Italic</i></td>
-	</tr>
-	<tr>
 		<td><code>{.|Monospace|.}</code></td>
 		<td><code>Monospace</code></td>
 	</tr>
