@@ -1,11 +1,39 @@
+# Phonies
+.PHONY: all build python clean package test clear
+
+# Variables
 SHELL := /bin/bash
-.PHONY: all build python clean package prerequisite
-all : prerequisite build clean
-prerequisite :
-	@source vEnv/bin/activate
+VENV := vEnv/bin/
+pyinstaller := $(VENV)pyinstaller
+python := $(VENV)python3
+pip := $(VENV)pip3
+RM := rm -rf
+SCRIPT := script.py
+APP := Notepad
+
+# Toggle Booleans
+RUN_PYTHON := false
+RUN_EXEC := false
+
+# Rules
+all : clear build clean test
+clear : clean
+	$(RM) dist
 build : python package
-python : script.py
-#	@python3 script.py
-package :
-	@pyinstaller -F script.py
+python : $(SCRIPT)
+ifeq ($(RUN_PYTHON),true)
+	@$(python) $(SCRIPT)
+endif
+package : $(SCRIPT)
+	@$(pyinstaller) \
+	--clean \
+	-n $(APP) \
+	-F \
+	--add-data "style.scss:." \
+	$(SCRIPT)
 clean :
+	$(RM) build $(APP).spec
+test :
+ifeq ($(RUN_EXEC),true)
+	@cd dist && ./$(APP)
+endif

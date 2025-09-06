@@ -1,11 +1,16 @@
-import re
-import sass
+import re, sass, sys, os
 from PyQt5.QtWidgets import (
 	QApplication,
 	QWidget,
 	QTextEdit,
 	QHBoxLayout
 )
+
+if getattr(sys, 'frozen', False):
+	base_path = sys._MEIPASS # type: ignore
+else:
+	base_path = os.path.dirname(__file__)
+
 syntax = {
 	"=": "bold",
 	"*": "italic",
@@ -13,12 +18,13 @@ syntax = {
 	"_": "underline",
 	"~": "strikethrough"
 }
+
 inputCSS = """
 	QTextEdit {
 		font: 20pt monospace;
 	}
 """.strip()
-with open("style.scss","r",encoding="utf8") as f:
+with open(os.path.join(base_path,"style.scss"),"r",encoding="utf8") as f:
 	outputSCSS = f.read()
 def formatRaw(self):
 	self.input.setFontFamily("monospace")
@@ -40,7 +46,6 @@ class MarkupEditor(QWidget):
 		formatRaw(self)
 		for k,v in syntax.items():
 			k = re.escape(k)
-			print(k,v)
 			text = re.sub(
 				f"\\{{{k}\\|(.*?)\\|{k}\\}}",
 				f"<span class=\"{v}\">\\1</span>",
@@ -49,7 +54,6 @@ class MarkupEditor(QWidget):
 		text = re.sub("\n","<br>",text)
 		outputCSS = sass.compile(string=outputSCSS,output_style="compressed").strip()
 		text = f"<style>{outputCSS}</style><body>{text}</body>"
-		print(re.sub(r"\t"," "*4,text))
 		self.preview.setHtml(text)
 if __name__ == "__main__":
 	app = QApplication([])
