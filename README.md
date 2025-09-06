@@ -3,18 +3,13 @@
 ## Features to add:
 
 - [ ] Automatically generated complex formatting tags
-	- For now, nesting will be used
-		>> `{=|{*|Bold+italic|*}|=}`
-		>> (Nested Tags [Current])
-		>
-		> instead of
-		>
-		>> `{=*|Bold+Italic|*=}`
-		>> (Complex Tags [Planned])
+	- For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tags (`{=*|Bold+Italic|*=}`) can be used instead
 - [ ] Tag escaping
+	- `{=|Bold|=}` => **Bold**
+	- `\{=|Bold|=}` => {=|Bold|=}
 - [ ] Buttons to insert tags
 - [ ] File Saving/Loading
-- [ ] Support for my custom Neographies[^Neo]
+- [ ] Support for my Neographies[^Neo]
     - AbugidaR[^AbR]
     - AlphabetD[^AlD]
 
