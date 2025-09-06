@@ -30,6 +30,7 @@
 - Make
 - [![CSS](https://img.shields.io/badge/CSS-639?logo=css&logoColor=fff)](#)
 	- [![Sass](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff)](#)
+		- SCSS
 
 [^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 
