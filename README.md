@@ -26,6 +26,7 @@
 ## Tech Stack
 
 - Python
+	- PyQt
 - Make
 - CSS
 	- SCSS
