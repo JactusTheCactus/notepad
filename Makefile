@@ -1,4 +1,4 @@
-.PHONY: all build format
+.PHONY: all build format python
 
 FILES := $(wildcard \
 	*.css \
@@ -14,10 +14,15 @@ SCSS := $(wildcard \
 )
 CSS := $(patsubst %.scss,%.css,$(SCSS))
 
-all : build format
+PY := $(wildcard *.py)
+
+all : build format python
 
 build : $(SCSS)
 	$(foreach FILE,SCSS,sass $^ $(CSS))
 
 format : $(FILES)
 	$(foreach FILE,FILES,prettier --write $^)
+
+python : script.py
+	python3 script.py

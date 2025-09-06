@@ -1,7 +1,7 @@
 {
 	"name": "notepad",
 	"version": "1.0.0",
-	"description": "- [ ] Automatically generated complex formatting tags - [ ] Tag escaping - [ ] Buttons to insert tags - [ ] File Saving/Loading - [ ] Support for my custom Neographies - AbugidaR[^AbR] - AlphabetD[^AlD]       Syntax",
+	"description": "# `C#` Notepad\n\n## Features to add:\n\n- Automatically generated complex formatting tags\n- Tag escaping\n- Buttons to insert tags\n- File Saving/Loading\n- Support for my custom Neographies\n\t- [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/AbugidaR)\n\t- [AlphabetD](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/AlphabetD)\n\n## Syntax\n\n|Syntax|Formatted|\n|-|-|\n|<code>{=\\|Bold\\|=}</code>|**Bold**|\n|<code>{\\*\\|Italic\\|\\*}</code>|*Italic*|\n|<code>{.\\|Monospace\\|.}</code>|`Monospace`|\n|<code>{\\_\\|Underline\\|\\_}</code>|<u>Underline</u>|\n|<code>{~\\|Strikethrough\\|~}</code>|~~Strikehtrough~~|",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"

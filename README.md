@@ -7,11 +7,10 @@
 - [ ] Buttons to insert tags
 - [ ] File Saving/Loading
 - [ ] Support for my custom Neographies
-	- AbugidaR[^AbR]
-	- AlphabetD[^AlD]
+    - AbugidaR[^AbR]
+    - AlphabetD[^AlD]
 
-Syntax
----
+## Syntax
 
 <table>
 	<tr>
