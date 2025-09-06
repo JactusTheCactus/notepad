@@ -16,7 +16,7 @@ syntax = {
 	"*": "italic",
 	".": "mono",
 	"_": "underline",
-	"~": "strikethrough"
+	"-": "strikethrough"
 }
 
 inputCSS = """
