@@ -25,7 +25,7 @@
 
 ## Tech Stack
 
-- Python
+- [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
 	- PyQt
 - Make
 - [![CSS](https://img.shields.io/badge/CSS-639?logo=css&logoColor=fff)](#)
