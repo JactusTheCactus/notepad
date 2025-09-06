@@ -26,14 +26,10 @@
 |`{=\|Bold\|=}`|**Bold**|
 |`{*\|Italic\|*}`|*Italic*|
 |`{.\|Monospace\|.}`|`Monospace`|
-|`{\|\|}`||
+|`{_\|Underline\|_}`|<u>Underline</u>|
 |`{\|\|}`||
 
 <table>
-	<tr>
-		<td><code>{.|Monospace|.}</code></td>
-		<td><code>Monospace</code></td>
-	</tr>
 	<tr>
 		<td><code>{_|Underline|_}</code></td>
 		<td><u>Underline</u></td>
