@@ -1,34 +1,23 @@
 body {
-	font: 20pt Verdana;
-}
+	font-size: 20pt;
 
-td:nth-child(odd) {
-	font-family: monospace;
-}
+	& .bold {
+		font-weight: bold;
+	}
 
-tr:nth-child(2) > td:nth-child(2) {
-	font-weight: bold;
-}
+	& .italic {
+		font-style: italic;
+	}
 
-tr:nth-child(3) > td:nth-child(2) {
-	font-style: italic;
-}
+	& .mono {
+		font-family: monospace;
+	}
 
-tr:nth-child(4) > td:nth-child(2) {
-	font-weight: bold;
-	font-style: italic;
-}
+	& .underline {
+		text-decoration: underline;
+	}
 
-tr:nth-child(5) > td:nth-child(2) {
-	font-family: monospace;
+	& .strikethrough {
+		text-decoration: line-through;
+	}
 }
-
-tr:nth-child(6) > td:nth-child(2) {
-	text-decoration: underline;
-}
-
-tr:nth-child(7) > td:nth-child(2) {
-	text-decoration: line-through;
-}
-
-/*# sourceMappingURL=style.scss.map */

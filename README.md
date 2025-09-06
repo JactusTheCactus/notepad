@@ -1,4 +1,4 @@
-﻿# `C#` Notepad
+﻿# Notepad
 
 ## Features to add:
 

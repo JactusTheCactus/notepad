@@ -1,30 +1,12 @@
-.PHONY: all build format python
-
-FILES := $(wildcard \
-	*.css \
-	*.json \
-	*.map \
-	*.scss \
-	*.html \
-	*.md \
-)
-
-SCSS := $(wildcard *.scss)
-
-CSS := $(patsubst %.scss,%.css,$(SCSS))
-
-CSSMAP := $(patsubst %.scss,%.css.map,$(SCSS))
-
+.PHONY: all build clean format python
+FILES := $(wildcard *.json *.md *.scss)
 PY := $(wildcard *.py)
-
-all : build format python
-
-build : $(SCSS)
-	$(foreach FILE,SCSS,sass $^ $(CSS))
-	$(foreach FILE,CSSMAP,rm -rf $^ $(CSSMAP))
-
-format : $(FILES)
-	$(foreach FILE,FILES,prettier --write $^)
-
+all : format build clean
+build : python
 python : script.py
-	python3 script.py
+#	@python3 script.py
+format : $(FILES)
+	@for FILE in $(FILES); do \
+		prettier --write $$FILE; \
+	done
+clean :

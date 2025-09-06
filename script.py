@@ -18,26 +18,8 @@ inputCSS = """
 		font: 20pt monospace;
 	}
 """.strip()
-outputSCSS = """
-body {
-	font-size: 20pt;
-	& .bold {
-		font-weight: bold;
-	}
-	& .italic {
-		font-style: italic;
-	}
-	& .mono {
-		font-family: monospace;
-	}
-	& .underline {
-		text-decoration: underline;
-	}
-	& .strikethrough {
-		text-decoration: line-through;
-	}
-}
-"""
+with open("style.scss","r",encoding="utf8") as f:
+	outputSCSS = f.read()
 def formatRaw(self):
 	self.input.setFontFamily("monospace")
 class MarkupEditor(QWidget):
