@@ -30,6 +30,8 @@
 ![Static Badge](https://img.shields.io/badge/Make-6D00CC?style=for-the-badge&logo=Make&logoColor=FFF)
 ![Static Badge](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=FFF)
 
+***
+
 [^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 
 [^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/AbugidaR)
