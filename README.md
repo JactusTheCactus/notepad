@@ -26,11 +26,10 @@
 ## Tech Stack
 
 - [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
-	- PyQt
+	- ![Qt](https://img.shields.io/badge/Qt-%23217346.svg?style=for-the-badge&logo=Qt&logoColor=white)
 - Make
 - [![CSS](https://img.shields.io/badge/CSS-639?logo=css&logoColor=fff)](#)
 	- [![Sass](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff)](#)
-		- SCSS
 
 [^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 
