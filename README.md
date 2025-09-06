@@ -26,6 +26,9 @@
 ## Tech Stack
 
 - Python
+- Make
+- CSS
+	- SCSS
 
 [^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 
