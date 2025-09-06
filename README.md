@@ -22,19 +22,13 @@
 ## Syntax
 -->
 |Syntax|Formatted|
-|-|-|
+|-:|:-|
 |`{=\|Bold\|=}`|**Bold**|
 |`{*\|Italic\|*}`|*Italic*|
 |`{.\|Monospace\|.}`|`Monospace`|
 |`{_\|Underline\|_}`|<ins>Underline</ins>|
 |`{~\|Strikethrough\|~}`|<s>Strikethrough</s>|
 
-<table>
-	<tr>
-		<td><code>{~|Strikethrough|~}</code></td>
-		<td><s>Strikethrough</s></td>
-	</tr>
-</table>
 <!--
 <table>
 	<tr>
