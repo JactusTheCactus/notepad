@@ -28,7 +28,7 @@
 |`{_\|Underline\|_}`|<ins>Underline</ins>|
 |`{~\|Strikethrough\|~}`|<s>Strikethrough</s>|
 
-[^Neo]: [Neographies' Repo]()
+[^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 
 [^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/AbugidaR)
 
