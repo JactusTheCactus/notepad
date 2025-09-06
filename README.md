@@ -26,7 +26,7 @@
 |`{*\|Italic\|*}`|*Italic*|
 |`{.\|Monospace\|.}`|`Monospace`|
 |`{_\|Underline\|_}`|<ins>Underline</ins>|
-|`{~\|Strikethrough\|~}`|<s>Strikethrough</s>|
+|`{-\|Strikethrough\|-}`|<s>Strikethrough</s>|
 
 [^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 
