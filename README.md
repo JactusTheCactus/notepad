@@ -20,6 +20,14 @@
 
 ## Syntax
 
+|Syntax|Formatted|
+|-|-|
+|||
+|||
+|||
+|||
+|||
+
 <table>
 	<tr>
 		<th>Syntax</th>
