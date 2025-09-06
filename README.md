@@ -29,7 +29,7 @@
 	- ![Qt](https://img.shields.io/badge/Qt-%23217346.svg?style=for-the-badge&logo=Qt&logoColor=white)
 - Make
 - [![CSS](https://img.shields.io/badge/CSS-639?logo=css&logoColor=fff)](#)
-	- [![Sass](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff)](#)
+	- [![Sass](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff)](#)![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 [^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 
