@@ -27,7 +27,7 @@
 
 - ![Static Badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=FFF)
 	- Qt
-- ![Static Badge](https://img.shields.io/badge/Make-6D00CC?style=for-the-badge&logo=Make)
+- ![Static Badge](https://img.shields.io/badge/Make-6D00CC?style=for-the-badge&logo=Make&logoColor=FFF)
 - CSS
 	- SCSS
 
