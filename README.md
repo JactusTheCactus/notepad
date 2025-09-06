@@ -23,7 +23,7 @@
 -->
 |Syntax|Formatted|
 |-|-|
-|`{=|Bold|=}`|**Bold**|
+|`{=\|Bold|=}`|**Bold**|
 |||
 |||
 |||
