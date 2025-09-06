@@ -29,7 +29,7 @@
 	- PyQt
 - Make
 - CSS
-	- SCSS
+	- [![Sass](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff)](#)
 
 [^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 
