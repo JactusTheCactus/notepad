@@ -7,7 +7,7 @@
 - [ ] Tag escaping
 	- `{=|Bold|=}` => **Bold**
 	- `\{=|Bold|=}` => {=|Bold|=}
-- [ ] Buttons to insert tags
+- [ ] Buttons to insert tags around the cursor
 - [ ] File Saving/Loading
 - [ ] Support for my Neographies[^Neo]
     - AbugidaR[^AbR]
