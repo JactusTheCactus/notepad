@@ -4,7 +4,7 @@
 	- For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tags (`{=*|Bold+Italic|*=}`) can be used instead
 - [ ] Tag escaping
 	- `{=|Bold|=}` => **Bold**
-	- `\{=|Bold|=}` => {=|Bold|=}
+	- `\{=|Bold|=\}` => {=|Bold|=}
 - [ ] Buttons to insert tags around the cursor
 - [ ] File Saving/Loading
 - [ ] Support for my Neographies[^Neo]
