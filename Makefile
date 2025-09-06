@@ -1,12 +1,11 @@
-.PHONY: all build clean format python
-FILES := $(wildcard *.json *.md *.scss)
-PY := $(wildcard *.py)
-all : format build clean
-format : $(FILES)
-	@for FILE in $(FILES); do \
-		prettier --write $$FILE; \
-	done
-build : python
+SHELL := /bin/bash
+.PHONY: all build python clean package prerequisite
+all : prerequisite build clean
+prerequisite :
+	@source vEnv/bin/activate
+build : python package
 python : script.py
-	@python3 script.py
+#	@python3 script.py
+package :
+	@pyinstaller -F script.py
 clean :
