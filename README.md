@@ -27,13 +27,9 @@
 |`{*\|Italic\|*}`|*Italic*|
 |`{.\|Monospace\|.}`|`Monospace`|
 |`{_\|Underline\|_}`|<ins>Underline</ins>|
-|`{\|\|}`||
+|`{~\|Strikethrough\|~}`|<s>Strikethrough</s>|
 
 <table>
-	<tr>
-		<td><code>{_|Underline|_}</code></td>
-		<td><u>Underline</u></td>
-	</tr>
 	<tr>
 		<td><code>{~|Strikethrough|~}</code></td>
 		<td><s>Strikethrough</s></td>
