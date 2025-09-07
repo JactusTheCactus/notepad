@@ -1,15 +1,16 @@
 ﻿# Notepad
 ## Features to add:
-- [ ] Automatically generated complex formatting tags
+1. [ ] Migrate to QML
+1. [ ] Automatically generated complex formatting tags
 	- For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tags (`{=*|Bold+Italic|*=}`) can be used instead
-- [ ] Tag escaping
+1. [ ] Tag escaping
 	- `{=|Bold|=}` => **Bold**
 	- `\{=|Bold|=\}` => {=|Bold|=}
-- [ ] Buttons to insert tags around the cursor
-- [ ] File Saving/Loading
-- [ ] Support for my Neographies[^Neo]
-    - AbugidaR[^AbR]
-    - Cascadic[^Cas]
+1. [ ] Buttons to insert tags around the cursor
+1. [ ] File Saving/Loading
+1. [ ] Support for my Neographies[^Neo]
+	- AbugidaR[^AbR]
+	- Cascadic[^Cas]
 ## Syntax
 |Syntax|Formatted|
 |-:|:-|
