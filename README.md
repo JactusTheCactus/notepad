@@ -1,11 +1,11 @@
 ﻿# Notepad
 ## Features to add:
 1. [ ] Migrate to QML
-1. [ ] Automatically generated complex formatting tags
-	- For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tags (`{=*|Bold+Italic|*=}`) can be used instead
 1. [ ] Tag escaping
 	- `{=|Bold|=}` => **Bold**
 	- `\{=|Bold|=\}` => {=|Bold|=}
+1. [ ] Automatically generated complex formatting tags
+	- For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tags (`{=*|Bold+Italic|*=}`) can be used instead
 1. [ ] Buttons to insert tags around the cursor
 1. [ ] File Saving/Loading
 1. [ ] Support for my Neographies[^Neo]
