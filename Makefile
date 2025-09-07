@@ -1,5 +1,5 @@
 # Phonies
-.PHONY: all build python clean package test clear
+.PHONY: all build python clean package test clear qml
 
 # Variables
 SHELL := /bin/bash
@@ -14,13 +14,13 @@ TEMP := build $(APP).spec
 
 # Toggle Booleans
 RUN_PYTHON := false
-RUN_EXEC := true
+RUN_EXEC := false
 
 # Rules
 all : clear build clean test
 clear :
 	@$(RM) $(TEMP) dist
-build : python package
+build : qml #python package
 python : $(SCRIPT)
 ifeq ($(RUN_PYTHON),true)
 	@$(python) $(SCRIPT)
@@ -32,6 +32,8 @@ package : $(SCRIPT)
 	-F \
 	--add-data "style.scss:." \
 	$(SCRIPT)
+qml : $(wildcard *.qml)
+	@qmlscene main.qml
 clean :
 	@$(RM) $(TEMP)
 test :
