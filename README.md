@@ -1,6 +1,6 @@
 ﻿# Notepad
 ## Features to add:
-1. [ ] Migrate to QML
+1. [ ] Migrate to QML<sup>?
 1. [ ] Tag escaping
 	- `{=|Bold|=}` => **Bold**
 	- `\{=|Bold|=\}` => {=|Bold|=}
