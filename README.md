@@ -1,6 +1,7 @@
 ﻿# Notepad
 ## Features to add:
-1. [ ] Migrate to QML<sup>`In Progress`</sup>
+1. [ ] Migrate to QML
+	- In Progress
 1. [ ] Tag escaping
 	- `{=|Bold|=}` => **Bold**
 	- `\{=|Bold|=\}` => {=|Bold|=}
