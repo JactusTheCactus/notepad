@@ -9,7 +9,7 @@
 - [ ] File Saving/Loading
 - [ ] Support for my Neographies[^Neo]
     - AbugidaR[^AbR]
-    - AlphabetD[^AlD]
+    - Cascadic[^Cas]
 ## Syntax
 |Syntax|Formatted|
 |-:|:-|
@@ -28,4 +28,4 @@
 ***
 [^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 [^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/AbugidaR)
-[^AlD]: [AlphabetD](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/AlphabetD)
+[^Cas]: [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/Cascadic)
