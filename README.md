@@ -17,21 +17,5 @@
 |`Monospace`|`{.\|Monospace\|.}`|`{{.\|Monospace\|.}}`|
 |<ins>Underline</ins>|`{_\|Underline\|_}`|`{{_\|Underline\|_}}`|
 |~~Strikethrough~~|`{-\|Strikethrough\|-}`|`{{-\|Strikethrough\|-}}`|
-
-<table>
-<tr>
-<td>
-</td>
-<td>
-<pre>
-</pre>
-</td>
-<td>
-<pre>
-
-</pre>
-</td>
-</tr>
-</table>
 <!--
 For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tag support (`{=*|Bold+Italic|*=}`) will be implemented to be used instead
