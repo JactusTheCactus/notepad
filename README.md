@@ -15,23 +15,20 @@
 |**Bold**|`{=\|Bold\|=}`|`{{=\|Bold\|=}}`|
 |*Italic*|`{*\|Italic\|*}`|`{{*\|Italic\|*}}`|
 |`Monospace`|`{.\|Monospace\|.}`|`{{.\|Monospace\|.}}`|
+|<ins>Underline</ins>|`{_\|Underline\|_}`|`{{_\|Underline\|_}}`|
 
 <table>
 <tr>
 <td>
-<ins>Underline</ins>
-<br>
 <s>Strikethrough</s>
 </td>
 <td>
 <pre>
-{_|Underline|_}
 {-|Strikethrough|-}
 </pre>
 </td>
 <td>
 <pre>
-{{_|Underline|_}}
 {{-|Strikethrough|-}}
 </pre>
 </td>
