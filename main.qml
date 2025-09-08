@@ -3,8 +3,9 @@ import QtQuick.Controls 2.15
 
 ApplicationWindow {
 	visible: true
-	width: 1200
-	height: 900
+	property var mult: 100
+	width: mult * 16
+	height: mult * 9
 	title: "QML Notepad"
 	font.pointSize: 20
 	Row {
@@ -14,26 +15,31 @@ ApplicationWindow {
 		Button {
 			width: parent.width / 5
 			height: parent.height
+			font.bold: true
 			text: "Bold"
 		}
 		Button {
 			width: parent.width / 5
 			height: parent.height
+			font.italic: true
 			text: "Italic"
 		}
 		Button {
 			width: parent.width / 5
 			height: parent.height
+			font.family: "monospace"
 			text: "Mono"
 		}
 		Button {
 			width: parent.width / 5
 			height: parent.height
+			font.underline: true
 			text: "Underline"
 		}
 		Button {
 			width: parent.width / 5
 			height: parent.height
+			font.strikeout: true
 			text: "Strikethrough"
 		}
 	}
@@ -49,21 +55,36 @@ ApplicationWindow {
 			"_": "u",
 			"-": "s"
 		}
-		function cssStyle(c, p, v) {
+		function cssStyle(c, [p, v]) {
 			return `.${c} {${p}: ${v}}`
 		}
 		function fmt(text) {
 			const css = `<style>${[
-				cssStyle("b","font-weight","bold"),
-				cssStyle("i","font-style","italic"),
-				cssStyle("m","font-family","monospace"),
-				cssStyle("u","text-decoration","underline"),
-				cssStyle("s","text-decoration","line-through")
+				cssStyle("b",[
+					"font-weight",
+					"bold"
+				]),
+				cssStyle("i",[
+					"font-style",
+					"italic"
+				]),
+				cssStyle("m",[
+					"font-family",
+					"monospace"
+				]),
+				cssStyle("u",[
+					"text-decoration",
+					"underline"
+				]),
+				cssStyle("s",[
+					"text-decoration",
+					"line-through"
+				])
 			].join("\n")}</style>`;
 			let body = text;
 			Object.entries(syntax).forEach(([k, v]) => {
 				body = body.replace(
-					new RegExp(`\\{${k}\\|(.*?)\\|${k}\\}`, "g"),
+					new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`, "g"),
 					`<span class="${v}">$1</span>`
 				)
 			});

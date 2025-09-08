@@ -1,30 +1,20 @@
 # Phonies
-.PHONY: all build python clean package test clear qml
+.PHONY: all build clean package test clear qml
 
 # Variables
 SHELL := /bin/bash
-VENV := vEnv/bin
-pyinstaller := $(VENV)/pyinstaller
-python := $(VENV)/python3.12
-pip := $(VENV)/pip3.12
 RM := rm -rf
-SCRIPT := script.py
 APP := Notepad
 TEMP := build $(APP).spec
 
 # Toggle Booleans
-RUN_PYTHON := false
 RUN_EXEC := false
 
 # Rules
-all : clear build clean test
+all : clear build #clean test
 clear :
 	@$(RM) $(TEMP) dist
-build : qml #python package
-python : $(SCRIPT)
-ifeq ($(RUN_PYTHON),true)
-	@$(python) $(SCRIPT)
-endif
+build : qml #package
 package : $(SCRIPT)
 	@$(pyinstaller) \
 	--clean \
