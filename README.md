@@ -13,12 +13,11 @@
 |Formatted|Raw|Escaped|
 |-|-|-|
 |**Bold**|`{=\|Bold\|=}`|`{{=\|Bold\|=}}`|
+|*Italic*|`{*\|Italic\|*}`|`{{*\|Italic\|*}}`|
 
 <table>
 <tr>
 <td>
-<i>Italic</i>
-<br>
 <code>Monospace</code>
 <br>
 <ins>Underline</ins>
@@ -27,7 +26,6 @@
 </td>
 <td>
 <pre>
-{*|Italic|*}
 {.|Monospace|.}
 {_|Underline|_}
 {-|Strikethrough|-}
@@ -35,7 +33,6 @@
 </td>
 <td>
 <pre>
-{{*|Italic|*}}
 {{.|Monospace|.}}
 {{_|Underline|_}}
 {{-|Strikethrough|-}}
