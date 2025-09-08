@@ -82,12 +82,18 @@ ApplicationWindow {title: "Notepad"
 			].join("\n")}</style>`
 			let body = text;
 			Object.entries(syntax).forEach(([k,v]) => {
-				body = body.replace(
-					new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`,"g"),
-					`<span class="${v}">$1</span>`
-				)
+				console.log();
+				body = body
+					.replace(/\{\{(.*?)\|([\s\S]*?)\|(.*?)\}\}/g, "([[$1[[)$2(]]$3]])")
+					.replace(
+						new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`,"g"),
+						`<span class="${v}">$1</span>`
+					);
+				console.log(body);
 			});
-			body = body.replace(/\n/g,"<br>");
+			body = body
+				.replace(/\n/g,"<br>")
+				.replace(/\(\[\[(.*?)\[\[\)([\s\S]*?)\(\]\](.*?)\]\]\)/g,"{$1|$2|$3}");
 			const output = css + body;
 			return output
 		}

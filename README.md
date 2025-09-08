@@ -1,8 +1,5 @@
 ﻿# Notepad
 ## Features to add:
-- Tag escaping
-	- `{=|Bold|=}` => **Bold**
-	- `\{=|Bold|=\}` => {=|Bold|=}
 - Automatically generated complex formatting tags
 	- For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tags (`{=*|Bold+Italic|*=}`) can be used instead
 - Buttons to insert tags around the cursor
@@ -11,6 +8,7 @@
 	- AbugidaR[^AbR]
 	- Cascadic[^Cas]
 - ~~Migrate to QML~~
+- ~~Tag escaping~~[^Escape]
 ## Syntax
 |Syntax|Formatted|
 |-:|:-|
@@ -27,3 +25,6 @@
 [^Neo]: [Neographies Repo](https://github.com/JactusTheCactus/conscript-font-gen)
 [^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/AbugidaR)
 [^Cas]: [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/Cascadic)
+[^Escape]:
+- `{=|Bold|=}` => **Bold**
+- `{{=|Bold|=}}` => {=|Bold|=}
