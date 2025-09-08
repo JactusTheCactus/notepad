@@ -3,12 +3,12 @@ import QtQuick.Controls 2.15
 ApplicationWindow {title: "QML Notepad"
 	visible: true
 	property var pt: 100
+	property var em: 20
 	width: 16 * pt
 	height: 9 * pt
-	font.pointSize: 20
+	font.pointSize: em
 	property var borderColour: "#888"
-	property var borderWidth: 2
-	property var em: 20
+	property var borderWidth: em / 5
 	Row {id: top
 		width: parent.width
 		height: parent.height * 0.1
