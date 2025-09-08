@@ -23,10 +23,9 @@
 ## Tech Stack
 ![Static Badge](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=Gnu%20bash&logoColor=FFF)
 ![Static Badge](https://img.shields.io/badge/Make-6D00CC?style=for-the-badge&logo=Make&logoColor=FFF)
-![Static Badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=FFF)
 ![Static Badge](https://img.shields.io/badge/Qt-41CD52?style=for-the-badge&logo=Qt&logoColor=FFF)
 ![Static Badge](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=FFF)
 ***
-[^Neo]: [Neographies' Repo](https://github.com/JactusTheCactus/conscript-font-gen)
-[^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/AbugidaR)
-[^Cas]: [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/eb32dcf2e69f757c483aa0ffe4746b8387cea251/Cascadic)
+[^Neo]: [Neographies Repo](https://github.com/JactusTheCactus/conscript-font-gen)
+[^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/AbugidaR)
+[^Cas]: [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/Cascadic)
