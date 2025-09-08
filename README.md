@@ -3,7 +3,7 @@
 ## Features to add:
 1. Automatically generated complex formatting tags
 1. Buttons to insert tags around the cursor
-1. File Saving/Loading
+1. File Saving / Loading
 1. Support for my [Neographies](https://github.com/JactusTheCactus/conscript-font-gen)
 	- [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/AbugidaR)
 	- [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/Cascadic)
