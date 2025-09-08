@@ -26,7 +26,7 @@
 [^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/AbugidaR)
 [^Cas]: [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/Cascadic)
 [^Escape]: Escape Syntax:
-- ||||
+	||||
 	|-:|:-:|:-|
 	|`{=\|Bold\|=}`|=>|**Bold**|
 	|`{{=\|Bold\|=}}`|=>|{=\|Bold\|=}|
