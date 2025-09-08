@@ -1,17 +1,17 @@
+//border{color:borderColour;width:borderWidth}
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-
-ApplicationWindow {
+ApplicationWindow { title: "QML Notepad"
 	visible: true
-	property var mult: 100
-	width: mult * 16
-	height: mult * 9
-	title: "QML Notepad"
+	property var pt: 100
+	width: 16 * pt
+	height: 9 * pt
 	font.pointSize: 20
-	Row {
-		id: top
-		width: parent.width
-		height: parent.height * 0.1
+	property var borderColour: "#888"
+	property var borderWidth: 2
+	Row {id: top
+	width: parent.width
+	height: parent.height * 0.1
 		Button {
 			width: parent.width / 5
 			height: parent.height
@@ -43,19 +43,19 @@ ApplicationWindow {
 			text: "Strikethrough"
 		}
 	}
-	Item {
-		id: main
+	Row {id: main
 		anchors.top: top.bottom
 		width: parent.width
 		height: parent.height * 0.9
 		property var syntax: {
-			"=": "b",
+			" = ": "b",
 			"\\*": "i",
 			"\\.": "m",
 			"_": "u",
-			"-": "s"
+			"-": "s",
+			"|": "c"
 		}
-		function cssStyle(c, [p, v]) {
+		function cssStyle(c,[p,v]) {
 			return `.${c} {${p}: ${v}}`
 		}
 		function fmt(text) {
@@ -80,40 +80,49 @@ ApplicationWindow {
 					"text-decoration",
 					"line-through"
 				])
-			].join("\n")}</style>`;
+			].join("\n")}</style>`
 			let body = text;
-			Object.entries(syntax).forEach(([k, v]) => {
+			Object.entries(syntax).forEach(([k,v]) => {
 				body = body.replace(
-					new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`, "g"),
-					`<span class="${v}">$1</span>`
+					new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`,"g"),
+					`<span class = "${v}">$1</span>`
 				)
 			});
-			body = body.replace(/\n/g, "<br>");
+			body = body.replace(/\n/g,"<br>");
 			const output = css + body;
 			return output
 		}
-		TextEdit {
-			id: raw
-			anchors.left: main.left
+		Rectangle {id: raw
 			width: main.width / 2
 			height: main.height
-			font.pointSize: 20
-			text: [
-				"{=|Bold|=}",
-				"{*|Italic|*}",
-				"{.|Mono|.}",
-				"{_|Underline|_}",
-				"{-|Strikethrough|-}"
-			].join("\n")
+			border {
+				color: borderColour
+				width: borderWidth
+			}
+			TextEdit {id: rawText
+				font.family: "monospace"
+				font.pointSize: 20
+				text: [
+					"{ = |Bold| = }",
+					"{*|Italic|*}",
+					"{.|Mono|.}",
+					"{_|Underline|_}",
+					"{-|Strikethrough|-}"
+				].join("\n")
+			}
 		}
-		Text {
-			id: formatted
-			anchors.right: parent.right
+		Rectangle {id: formatted
 			width: parent.width / 2
 			height: main.height
-			font.pointSize: 20
-			textFormat: Text.RichText
-			text: main.fmt(raw.text)
+			border {
+				color: borderColour
+				width: borderWidth
+			}
+			Text {id: formattedText
+				font.pointSize: 20
+				textFormat: Text.RichText
+				text: main.fmt(rawText.text)
+			}
 		}
 	}
 }
