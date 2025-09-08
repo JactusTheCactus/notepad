@@ -1,14 +1,13 @@
 ﻿# Notepad
 ## Features to add:
-- Automatically generated complex formatting tags
+1. Automatically generated complex formatting tags
 	- For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tags (`{=*|Bold+Italic|*=}`) can be used instead
-- Buttons to insert tags around the cursor
-- File Saving/Loading
-- Support for my Neographies[^Neo]
-	- AbugidaR[^AbR]
-	- Cascadic[^Cas]
-- ~~Migrate to QML~~
-- ~~Tag escaping~~[^Escape]
+1. Buttons to insert tags around the cursor
+1. File Saving/Loading
+1. Support for my Neographies[^Neo]
+***
+1. ~~Migrate to QML~~
+1. ~~Tag escaping~~[^Escape]
 ## Syntax
 |Syntax|Formatted|
 |-:|:-|
@@ -23,6 +22,8 @@
 ![Static Badge](https://img.shields.io/badge/Qt-41CD52?style=for-the-badge&logo=Qt&logoColor=FFF)
 ![Static Badge](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=FFF)
 [^Neo]: [Neographies Repo](https://github.com/JactusTheCactus/conscript-font-gen)
+	- AbugidaR[^AbR]
+	- Cascadic[^Cas]
 [^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/AbugidaR)
 [^Cas]: [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/Cascadic)
 [^Escape]: Escape Syntax:
