@@ -12,7 +12,10 @@
 -->
 |Formatted|Raw|Escaped|
 |-|-|-|
+|||
 
-<table><tr><th>Formatted</th><th>Raw</th><th>Escaped</th></tr><tr><td><b>Bold</b><br><i>Italic</i><br><code>Monospace</code><br><ins>Underline</ins><br><s>Strikethrough</s></td><td><pre>{=|Bold|=}<br>{*|Italic|*}<br>{.|Monospace|.}<br>{_|Underline|_}<br>{-|Strikethrough|-}</pre></td><td><pre>{{=|Bold|=}}<br>{{*|Italic|*}}<br>{{.|Monospace|.}}<br>{{_|Underline|_}}<br>{{-|Strikethrough|-}}</pre></td></tr></table>
+<table>
+<tr>
+<td><b>Bold</b><br><i>Italic</i><br><code>Monospace</code><br><ins>Underline</ins><br><s>Strikethrough</s></td><td><pre>{=|Bold|=}<br>{*|Italic|*}<br>{.|Monospace|.}<br>{_|Underline|_}<br>{-|Strikethrough|-}</pre></td><td><pre>{{=|Bold|=}}<br>{{*|Italic|*}}<br>{{.|Monospace|.}}<br>{{_|Underline|_}}<br>{{-|Strikethrough|-}}</pre></td></tr></table>
 <!--
 For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tag support (`{=*|Bold+Italic|*=}`) will be implemented to be used instead
