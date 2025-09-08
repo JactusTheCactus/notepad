@@ -12,7 +12,7 @@
 -->
 |Formatted|Raw|Escaped|
 |-|-|-|
-|**Bold**|```{=\|Bold\|=}```|`{{=\|Bold\|=}}`|
+|**Bold**|`{=\|Bold\|=}`|`{{=\|Bold\|=}}`|
 |*Italic*|`{*\|Italic\|*}`|`{{*\|Italic\|*}}`|
 |`Monospace`|`{.\|Monospace\|.}`|`{{.\|Monospace\|.}}`|
 |<ins>Underline</ins>|`{_\|Underline\|_}`|`{{_\|Underline\|_}}`|
