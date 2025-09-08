@@ -1,11 +1,7 @@
-# Phonies
 .PHONY: all build
 
-# Variables
 SHELL := /bin/bash
-QT := $(wildcard \
-	*.qml \
-)
+QT := $(wildcard *.qml)
 
 all : build
 build : $(QT)
