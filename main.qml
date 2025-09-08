@@ -9,9 +9,10 @@ ApplicationWindow { title: "QML Notepad"
 	font.pointSize: 20
 	property var borderColour: "#888"
 	property var borderWidth: 2
+	property var em: 20
 	Row {id: top
-	width: parent.width
-	height: parent.height * 0.1
+		width: parent.width
+		height: parent.height * 0.1
 		Button {
 			width: parent.width / 5
 			height: parent.height
@@ -48,12 +49,11 @@ ApplicationWindow { title: "QML Notepad"
 		width: parent.width
 		height: parent.height * 0.9
 		property var syntax: {
-			" = ": "b",
+			"=": "b",
 			"\\*": "i",
 			"\\.": "m",
 			"_": "u",
-			"-": "s",
-			"|": "c"
+			"-": "s"
 		}
 		function cssStyle(c,[p,v]) {
 			return `.${c} {${p}: ${v}}`
@@ -85,7 +85,7 @@ ApplicationWindow { title: "QML Notepad"
 			Object.entries(syntax).forEach(([k,v]) => {
 				body = body.replace(
 					new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`,"g"),
-					`<span class = "${v}">$1</span>`
+					`<span class="${v}">$1</span>`
 				)
 			});
 			body = body.replace(/\n/g,"<br>");
@@ -101,14 +101,15 @@ ApplicationWindow { title: "QML Notepad"
 			}
 			TextEdit {id: rawText
 				font.family: "monospace"
-				font.pointSize: 20
+				font.pointSize: em
 				text: [
-					"{ = |Bold| = }",
+					"{=|Bold|=}",
 					"{*|Italic|*}",
 					"{.|Mono|.}",
 					"{_|Underline|_}",
 					"{-|Strikethrough|-}"
 				].join("\n")
+				padding: em
 			}
 		}
 		Rectangle {id: formatted
@@ -119,9 +120,10 @@ ApplicationWindow { title: "QML Notepad"
 				width: borderWidth
 			}
 			Text {id: formattedText
-				font.pointSize: 20
+				font.pointSize: em
 				textFormat: Text.RichText
 				text: main.fmt(rawText.text)
+				padding: em
 			}
 		}
 	}
