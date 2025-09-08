@@ -21,12 +21,9 @@
 ![Static Badge](https://img.shields.io/badge/Qt-41CD52?style=for-the-badge&logo=Qt&logoColor=FFF)
 ![Static Badge](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=FFF)
 [^Neo]: [Neographies Repo](https://github.com/JactusTheCactus/conscript-font-gen)
-	- AbugidaR[^AbR]
-	- Cascadic[^Cas]
-[^AbR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/AbugidaR)
-[^Cas]: [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/Cascadic)
-[^Escape]: Escape Syntax:
-	|`{=\|Bold\|=}`|=>|**Bold**|
-	|-:|:-:|:-|
-	|`{{=\|Bold\|=}}`|=>|{=\|Bold\|=}|
+	- AbugidaR[^AbugidaR]
+	- Cascadic[^Cascadic]
+[^AbugidaR]: [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/AbugidaR)
+[^Cascadic]: [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/Cascadic)
+[^Escape]: Double curly braces escape formatting: `{=|Bold|=}` => **Bold**; `{{=|Bold|=}}` => {=|Bold|=}
  [^Auto]: For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tags (`{=*|Bold+Italic|*=}`) can be used instead
