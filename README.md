@@ -12,7 +12,7 @@
 -->
 |Formatted|Raw|Escaped|
 |-|-|-|
-|**Bold**|`{=|Bold|=}`|`{{=|Bold|=}}`|
+|**Bold**|`{=\|Bold\|=}`|`{{=\|Bold\|=}}`|
 
 <table>
 <tr>
