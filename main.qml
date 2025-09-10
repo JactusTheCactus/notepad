@@ -149,35 +149,20 @@ ApplicationWindow {title: "Notepad"
 				.replace(/\n{2,}/g,["<br>","<br>"].join("\u00b7".repeat(25)))
 				.replace(/\n/g,"<br>")
 			let match;
-			while ((match = /\{\S*? \S*?\|/g.exec(body)) || (match = /\|\S*? \S*?\}/g.exec(body))) {
+			while ((match = /\{\S*? \S*?\||\|\S*? \S*?\}/g.exec(body))) {
 				body = body
-					.replace(
-						/\{(\S*?) (\S*?)\|/g,
-						"{$1|{$2|"
-					)
-					.replace(
-						/\|(\S*?) (\S*?)\}/g,
-						"|$1}|$2}"
-					)
+					.replace(/\{(\S*?) (\S*?)\|/g,"{$1|{$2|")
+					.replace(/\|(\S*?) (\S*?)\}/g,"|$1}|$2}")
 			}
-			while ((match = /\|\S*? \S*?\}/g.exec(body))) {
-				console.log("Close")
-				console.log(match)
-				console.log()
-				body = body.replace(
-					/\|(\S*?) (\S*?)\}/g,
-					"|$1}|$2}"
-				)
-			}
-			/*Object.entries(syntax).forEach(([k,v]) => {
+			Object.entries(syntax).forEach(([k,v]) => {
 				body = body.replace(
 					new RegExp(`\\{${k}\\|(.*?)\\|${k}\\}`,"g"),
 					`<${v}-style>$1</${v}-style>`
 				);
-			});*/
-			/*body = body
+			});
+			body = body
 				.replace(/\(\[\[(.*?)\[\[\)/g,"{$1|")
-				.replace(/\(\]\](.*?)\]\]\)/g,"|$1}");*/
+				.replace(/\(\]\](.*?)\]\]\)/g,"|$1}");
 			return body
 		}
 		function getTag(tag=".",text="") {
