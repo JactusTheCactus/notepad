@@ -100,34 +100,29 @@ ApplicationWindow {title: "Notepad"
 				["text-decoration","line-through"]
 			],
 			"R": [
-				["color","#f00"],
-				["background-color","#0f0"]
+				["color","#f00"]
 			],
 			"O": [
-				["color","#f80"],
-				["background-color","#00f"]
+				["color","#f80"]
 			],
 			"Y": [
-				["color","#ff0"],
-				["background-color","#80f"]
+				["color","#ff0"]
 			],
 			"G": [
-				["color","#0f0"],
-				["background-color","#f00"]
+				["color","#0f0"]
 			],
 			"B": [
-				["color","#00f"],
-				["background-color","#f80"]
+				["color","#00f"]
 			],
 			"P": [
-				["color","#80f"],
-				["background-color","#ff0"]
+				["color","#80f"]
 			]
 		}
 		function cssStyle(c,r) {
-			const s = r.map(([p,v]) => `${p}:${v};`);
-			const f = `.${c}{${s.join("")}}`;
-			return f
+			return `.${c}{${r
+				.map(([p,v]) => `${p}:${v};`)
+				.join("")
+			}}`
 		}
 		property var style: `<style>${Object.entries(main.stylesheet).map(i => cssStyle(i[0],i[1])).join("")}</style>`
 		function _() {
