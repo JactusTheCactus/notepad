@@ -8,7 +8,7 @@
 	- [AbugidaR](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/AbugidaR)
 	- [Cascadic](https://github.com/JactusTheCactus/conscript-font-gen/tree/main/Cascadic)
 ## Syntax
-### `{#|Text|#}`
+The format sequence is `{#|Text|#}`
 - `Text`: Formatted Text
 - `#`: Formatting
 	|	`#`	|	Format					|
@@ -20,7 +20,5 @@
 	|	`-`	|	~~Strikethrough~~		|
 The escape sequence is `{{#|Text|#}}` and renders as {#|Text|#}.
 > [!NOTE]
-> For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tag support (`{= *|Bold+Italic|* =}`) (Symbols separated by spaces) will be implemented and is to be used instead
->
-> [!NOTE]
-> complex symbol logic is being implemented, but currently only supports `2` symbols at a time
+> - For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tag support (`{= *|Bold+Italic|* =}`) (Symbols separated by spaces) will be implemented and is to be used instead
+> - complex symbol logic is being implemented, but currently only supports `2` symbols at a time
