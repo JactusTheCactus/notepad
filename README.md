@@ -12,13 +12,13 @@
 - `{#|Text|#}`
 	- `Text`: Formatted Text
 	- `#`: Formatting
-		|Symbol|Style|
-		|-:|:-|
-		|`=`|**Bold**|
-		|`*`|*Italic*|
-		|`.`|`Monospace`|
-		|`_`|<ins>Underline</ins>|
-		|`-`|~~Strikethrough~~|
+		|	Symbol	|	Style					|
+		|----------:|:--------------------------|
+		|	`=`		|	**Bold**				|
+		|	`*`		|	*Italic*				|
+		|	`.`		|	`Monospace`				|
+		|	`_`		|	<ins>Underline</ins>	|
+		|	`-`		|	~~Strikethrough~~		|
 - `{{#|Text|#}}`
 	- Escaped formatting
 	- Renders as {#|Text|#}

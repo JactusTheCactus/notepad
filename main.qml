@@ -10,37 +10,60 @@ ApplicationWindow {title: "Notepad"
 	property var borderColour: "#888"
 	property var borderWidth: em / 5
 	Row {id: top
+		function styleButton(inputStr) {
+			console.log(inputStr);
+		}
 		width: parent.width
 		height: parent.height * 0.1
-		Button {
+		Button {id: top_b
 			width: parent.width / 5
 			height: parent.height
 			font.bold: true
 			text: "Bold"
+			onClicked: {
+				top.styleButton(text);
+				main._();
+			}
 		}
-		Button {
+		Button {id: top_i
 			width: parent.width / 5
 			height: parent.height
 			font.italic: true
 			text: "Italic"
+			onClicked: {
+				top.styleButton(text);
+				main._();
+			}
 		}
-		Button {
+		Button {id: top_m
 			width: parent.width / 5
 			height: parent.height
 			font.family: "monospace"
 			text: "Mono"
+			onClicked: {
+				top.styleButton(text);
+				main._();
+			}
 		}
-		Button {
+		Button {id: top_u
 			width: parent.width / 5
 			height: parent.height
 			font.underline: true
 			text: "Underline"
+			onClicked: {
+				top.styleButton(text);
+				main._();
+			}
 		}
-		Button {
+		Button {id: top_s
 			width: parent.width / 5
 			height: parent.height
 			font.strikeout: true
 			text: "Strikethrough"
+			onClicked: {
+				top.styleButton(text);
+				main._();
+			}
 		}
 	}
 	Row {id: main
@@ -52,51 +75,83 @@ ApplicationWindow {title: "Notepad"
 			"\\*": "i",
 			"\\.": "m",
 			"_": "u",
-			"-": "s"
+			"-": "s",
+			"R": "R",
+			"O": "O",
+			"Y": "Y",
+			"G": "G",
+			"B": "B",
+			"P": "P"
 		}
-		function cssStyle(c,[p,v]) {
-			return `.${c} {${p}: ${v}}`
+		property var stylesheet: {
+			"b": [
+				["font-weight","bold"]
+			],
+			"i": [
+				["font-style","italic"]
+			],
+			"m": [
+				["font-family","monospace"]
+			],
+			"u": [
+				["text-decoration","underline"]
+			],
+			"s": [
+				["text-decoration","line-through"]
+			],
+			"R": [
+				["color","#f00"],
+				["background-color","#0f0"]
+			],
+			"O": [
+				["color","#f80"],
+				["background-color","#00f"]
+			],
+			"Y": [
+				["color","#ff0"],
+				["background-color","#80f"]
+			],
+			"G": [
+				["color","#0f0"],
+				["background-color","#f00"]
+			],
+			"B": [
+				["color","#00f"],
+				["background-color","#f80"]
+			],
+			"P": [
+				["color","#80f"],
+				["background-color","#ff0"]
+			]
+		}
+		function cssStyle(c,r) {
+			const s = r.map(([p,v]) => `${p}:${v};`);
+			const f = `.${c}{${s.join("")}}`;
+			return f
+		}
+		property var style: `<style>${Object.entries(main.stylesheet).map(i => cssStyle(i[0],i[1])).join("")}</style>`
+		function _() {
+			console.log(style)
 		}
 		function fmt(text) {
-			const css = `<style>${[
-				cssStyle("b",[
-					"font-weight",
-					"bold"
-				]),
-				cssStyle("i",[
-					"font-style",
-					"italic"
-				]),
-				cssStyle("m",[
-					"font-family",
-					"monospace"
-				]),
-				cssStyle("u",[
-					"text-decoration",
-					"underline"
-				]),
-				cssStyle("s",[
-					"text-decoration",
-					"line-through"
-				])
-			].join("\n")}</style>`
 			let body = text;
 			body = body
 				.replace(/\{\{(.*?)\|/g, "([[$1[[)")
 				.replace(/\|(.*?)\}\}/g, "(]]$1]])")
 			Object.entries(syntax).forEach(([k,v]) => {
-				body = body
-					.replace(
-						new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`,"g"),
-						`<span class="${v}">$1</span>`
-					);
+				body = body.replace(
+					new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`,"g"),
+					`<span class="${v}">$1</span>`
+				);
 			});
 			body = body
 				.replace(/\n/g,"<br>")
 				.replace(/\(\[\[(.*?)\[\[\)/g,"{$1|")
 				.replace(/\(\]\](.*?)\]\]\)/g,"|$1}");
-			const output = css + body;
-			return output
+			return body
+		}
+		function getTag(tag=".",text="") {
+			return `{${tag}|${text}|${tag}}`
 		}
 		Rectangle {id: raw
 			width: main.width / 2
@@ -109,11 +164,17 @@ ApplicationWindow {title: "Notepad"
 				font.family: "monospace"
 				font.pointSize: em
 				text: [
-					"{=|Bold|=}",
-					"{*|Italic|*}",
-					"{.|Mono|.}",
-					"{_|Underline|_}",
-					"{-|Strikethrough|-}"
+					main.getTag("=",top_b.text),
+					main.getTag("*",top_i.text),
+					main.getTag(".",top_m.text),
+					main.getTag("_",top_u.text),
+					main.getTag("-",top_s.text),
+					main.getTag("R","Red"),
+					main.getTag("O","Orange"),
+					main.getTag("Y","Yellow"),
+					main.getTag("G","Green"),
+					main.getTag("B","Blue"),
+					main.getTag("P","Purple")
 				].join("\n")
 				padding: em
 			}
@@ -128,7 +189,7 @@ ApplicationWindow {title: "Notepad"
 			Text {id: formattedText
 				font.pointSize: em
 				textFormat: Text.RichText
-				text: main.fmt(rawText.text)
+				text: main.style + main.fmt(rawText.text)
 				padding: em
 			}
 		}
