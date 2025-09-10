@@ -24,3 +24,9 @@
 	- Renders as {#|Text|#}
 
 For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tag support (`{= *|Bold+Italic|* =}`) (Symbols separated by spaces) will be implemented and is to be used instead
+
+> [!NOTE]
+> complex symbol logic is being implemented,
+> but currently only supports
+> **2**
+> symbols at a time
