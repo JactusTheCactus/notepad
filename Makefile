@@ -1,8 +1,3 @@
-.PHONY: all build
-
-SHELL := /bin/bash
-QT := $(wildcard *.qml)
-
-all : build
-build : $(QT)
-	@qmlscene main.qml
+include make/phony.mk
+include make/var.mk
+include make/rules.mk
