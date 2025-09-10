@@ -76,12 +76,12 @@ ApplicationWindow {title: "Notepad"
 			"\\.": "m",
 			"_": "u",
 			"-": "s",
-			"R": "R",
-			"O": "O",
-			"Y": "Y",
-			"G": "G",
-			"B": "B",
-			"P": "P"
+			"red": "red",
+			"orange": "orange",
+			"yellow": "yellow",
+			"green": "green",
+			"blue": "blue",
+			"purple": "purple"
 		}
 		property var stylesheet: {
 			"b": [
@@ -99,50 +99,85 @@ ApplicationWindow {title: "Notepad"
 			"s": [
 				["text-decoration","line-through"]
 			],
-			"R": [
+			"red": [
 				["color","#f00"]
 			],
-			"O": [
+			"orange": [
 				["color","#f80"]
 			],
-			"Y": [
+			"yellow": [
 				["color","#ff0"]
 			],
-			"G": [
+			"green": [
 				["color","#0f0"]
 			],
-			"B": [
+			"blue": [
 				["color","#00f"]
 			],
-			"P": [
+			"purple": [
 				["color","#80f"]
 			]
 		}
 		function cssStyle(c,r) {
-			return `.${c}{${r
-				.map(([p,v]) => `${p}:${v};`)
+			return `${c}{${r
+				.map(([p,v]) => {
+					return `${p}:${v};`
+				})
 				.join("")
 			}}`
 		}
-		property var style: `<style>${Object.entries(main.stylesheet).map(i => cssStyle(i[0],i[1])).join("")}</style>`
+		property var style: `<style>${[
+			//"body{}"
+		].join("")}${Object
+			.entries(main.stylesheet)
+			.map(i => {
+				return cssStyle(`${i[0]}-style`,i[1])
+			})
+			.join("")
+		}</style>`
 		function _() {
-			console.log(style)
+			console.log(style);
+			console.log(formattedText.fmtText)
 		}
 		function fmt(text) {
 			let body = text;
 			body = body
 				.replace(/\{\{(.*?)\|/g, "([[$1[[)")
 				.replace(/\|(.*?)\}\}/g, "(]]$1]])")
-			Object.entries(syntax).forEach(([k,v]) => {
-				body = body.replace(
-					new RegExp(`\\{${k}\\|([\\s\\S]*?)\\|${k}\\}`,"g"),
-					`<span class="${v}">$1</span>`
-				);
-			});
-			body = body
+				.replace(/\n{4,}/g,["<br>","<br>"].join("=".repeat(25)))
+				.replace(/\n{3,}/g,["<br>","<br>"].join("-".repeat(25)))
+				.replace(/\n{2,}/g,["<br>","<br>"].join("\u00b7".repeat(25)))
 				.replace(/\n/g,"<br>")
+			let match;
+			while ((match = /\{\S*? \S*?\|/g.exec(body)) || (match = /\|\S*? \S*?\}/g.exec(body))) {
+				body = body
+					.replace(
+						/\{(\S*?) (\S*?)\|/g,
+						"{$1|{$2|"
+					)
+					.replace(
+						/\|(\S*?) (\S*?)\}/g,
+						"|$1}|$2}"
+					)
+			}
+			while ((match = /\|\S*? \S*?\}/g.exec(body))) {
+				console.log("Close")
+				console.log(match)
+				console.log()
+				body = body.replace(
+					/\|(\S*?) (\S*?)\}/g,
+					"|$1}|$2}"
+				)
+			}
+			/*Object.entries(syntax).forEach(([k,v]) => {
+				body = body.replace(
+					new RegExp(`\\{${k}\\|(.*?)\\|${k}\\}`,"g"),
+					`<${v}-style>$1</${v}-style>`
+				);
+			});*/
+			/*body = body
 				.replace(/\(\[\[(.*?)\[\[\)/g,"{$1|")
-				.replace(/\(\]\](.*?)\]\]\)/g,"|$1}");
+				.replace(/\(\]\](.*?)\]\]\)/g,"|$1}");*/
 			return body
 		}
 		function getTag(tag=".",text="") {
@@ -156,20 +191,24 @@ ApplicationWindow {title: "Notepad"
 				width: borderWidth
 			}
 			TextEdit {id: rawText
+				width: parent.width
+				height: parent.height
 				font.family: "monospace"
 				font.pointSize: em
+				wrapMode: TextEdit.Wrap
 				text: [
 					main.getTag("=",top_b.text),
 					main.getTag("*",top_i.text),
 					main.getTag(".",top_m.text),
 					main.getTag("_",top_u.text),
 					main.getTag("-",top_s.text),
-					main.getTag("R","Red"),
-					main.getTag("O","Orange"),
-					main.getTag("Y","Yellow"),
-					main.getTag("G","Green"),
-					main.getTag("B","Blue"),
-					main.getTag("P","Purple")
+					"",
+					main.getTag("red","Red"),
+					main.getTag("orange","Orange"),
+					main.getTag("yellow","Yellow"),
+					main.getTag("green","Green"),
+					main.getTag("blue","Blue"),
+					main.getTag("purple","Purple")
 				].join("\n")
 				padding: em
 			}
@@ -182,10 +221,14 @@ ApplicationWindow {title: "Notepad"
 				width: borderWidth
 			}
 			Text {id: formattedText
+				width: parent.width
+				height: parent.height
 				font.pointSize: em
 				textFormat: Text.RichText
-				text: main.style + main.fmt(rawText.text)
+				property var fmtText: main.fmt(rawText.text)
+				text: main.style + fmtText
 				padding: em
+				wrapMode: Text.Wrap
 			}
 		}
 	}
