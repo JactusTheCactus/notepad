@@ -23,7 +23,13 @@ The escape sequence is `{{#|Text|#}}` and renders as {#|Text|#}.
 > For now, nesting will be used, but eventually complex tag support will be implemented and is to be used instead
 >> Nesting: `{=|{*|Bold+italic|*}|=}`
 >
->> Complex: `{= *|Bold+Italic|* =}`
+>> Complex:
+>> 1. `{#|Text|#}`
+>> 2. `{# #|Text|# #}`
+>> 3. `{# # #|Text|# # #}`
+>> 4. `{# # # #|Text|# # # #}`
+>> 5. `{# # # # #|Text|# # # # #}`
 
 > [!NOTE]
-> Complex symbol logic is currently being developed, but, as of now, only supports 2 symbols at a time
+> Complex symbol logic is currently being developed, but, as of now, only supports 2 symbols in a single tag
+>> `{# #|Text|# #}`
