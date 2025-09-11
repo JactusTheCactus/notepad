@@ -20,5 +20,10 @@ The format sequence is `{#|Text|#}`
 	|	`-`	|	~~Strikethrough~~		|
 The escape sequence is `{{#|Text|#}}` and renders as {#|Text|#}.
 > [!NOTE]
-> - For now, nesting will be used (`{=|{*|Bold+italic|*}|=}`), but eventually complex tag support (`{= *|Bold+Italic|* =}`) (Symbols separated by spaces) will be implemented and is to be used instead
-> - complex symbol logic is being implemented, but currently only supports `2` symbols at a time
+> For now, nesting will be used, but eventually complex tag support will be implemented and is to be used instead
+>> Nesting: `{=|{*|Bold+italic|*}|=}`
+>
+>> Complex: `{= *|Bold+Italic|* =}`
+
+> [!NOTE]
+> Complex symbol logic is currently being developed, but, as of now, only supports 2 symbols at a time
